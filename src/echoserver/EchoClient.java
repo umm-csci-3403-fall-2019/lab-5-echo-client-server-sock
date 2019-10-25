@@ -16,17 +16,24 @@ public class DateClient {
     try {
       // Connect to the server
       Socket socket = new Socket(server, portNumber);
+      //Get the input and output steams   
+      InputStream input = socket.getInputStream();  
+      OutputStream output = socket.getOutputStream();
 
-      // Get the input stream so we can read from that socket
-      InputStream input = socket.getInputStream();
-      BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+    int bytes;
+    while ((bytes = System.in.read()) != -1) {
+        //write byte to the server
+        output.write(bytes);
 
-      // Print all the input we receive from the server
-      String line;
-      while ((line = reader.readLine()) != null) {
-        System.out.println(line);
-      }
+        //Server reads byte
+        byte = input.read();
 
+        //Server writes to the screen
+        System.out.write(bytes);
+    }
+
+
+      System.out.flush();
       // Close the socket when we're done reading from it
       socket.close();
 
