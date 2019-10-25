@@ -1,7 +1,9 @@
+package echoserver;
+  
 import java.net.*;
 import java.io.*;
 
-public class DateClient {
+public class EchoClient {
   public static final int portNumber = 6013;
 
   public static void main(String[] args) throws IOException {
@@ -17,7 +19,7 @@ public class DateClient {
       // Connect to the server
       Socket socket = new Socket(server, portNumber);
       //Get the input and output steams   
-      InputStream input = socket.getInputStream();  
+      InputStream input = socket.getInputStream();
       OutputStream output = socket.getOutputStream();
 
     int bytes;
@@ -26,7 +28,7 @@ public class DateClient {
         output.write(bytes);
 
         //Server reads byte
-        byte = input.read();
+        bytes = input.read();
 
         //Server writes to the screen
         System.out.write(bytes);
@@ -47,3 +49,4 @@ public class DateClient {
     }
   }
 }
+~           
