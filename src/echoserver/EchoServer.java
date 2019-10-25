@@ -11,7 +11,7 @@ public class EchoServer {
       // Start listening on the specified port
       ServerSocket sock = new ServerSocket(portNumber);
 
-      int b;
+     
       // Run forever, which is common for server style services
       while (true) {
         // Wait until someone connects, thereby requesting a date
@@ -24,9 +24,9 @@ public class EchoServer {
         OutputStream output = client.getOutputStream();
 
   
-
-        while((b = input.read()) != -1) {
-            output.write(b);
+        int bytes;
+        while((bytes = input.read()) != -1) {
+            output.write(bytes);
         }
 
         

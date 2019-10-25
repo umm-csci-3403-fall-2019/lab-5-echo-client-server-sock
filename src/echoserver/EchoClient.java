@@ -1,4 +1,7 @@
 package echoserver;
+  
+import java.net.*;
+import java.io.*;
 
 import java.net.*;
 import java.io.*;
@@ -18,7 +21,7 @@ public class EchoClient {
     try {
       // Connect to the server
       Socket socket = new Socket(server, portNumber);
-      //Get the input and output steams   
+      //Get the input and output steams  
       InputStream input = socket.getInputStream();  
       OutputStream output = socket.getOutputStream();
 
